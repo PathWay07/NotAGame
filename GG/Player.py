@@ -1,7 +1,8 @@
 from Skills import skill
-from Skills import skillsList
 
+from Miscvariables import roundnum
 import random
+
 
 class player:
     def __init__(self,name,attack,defence,vitality,speed,energy,skill1,skill2,skill3,skill4,skill5,skill6):
@@ -18,8 +19,6 @@ class player:
         self.skill5 = skill5
         self.skill6 = skill6
 
-sukuna =player("Sukuna",45.0,20.0,300.0,20.0,300.0,skillsList.Dismantle,skillsList.Cleave, skillsList.knifeattack,skillsList.Healingfactor,skillsList.MalevolentShrine, skillsList.FlameArrow)
-gojo = player("Gojo",50.0,30.0,300.0,10.0,250.0,skillsList.UnlimitedVoid,skillsList.Blue, skillsList.Red, skillsList.Purple, skillsList.Healingfactor,skillsList.Rest )
 def takeDamage(user, receiver, skillUsed):
     r = (random.randint(50,100))
     damagaTaken = user.attack*0.25 + (skillUsed.damage*r)/100 + skillUsed.speed*0.25 -(receiver.defence*0.75 + receiver.speed*0.50)
@@ -86,7 +85,7 @@ def useMove(user,receiver):
         status(receiver)
     else:
         print(str(receiver.name) + " countered with " + str(counter.name)+" Level: "+ str(counter.level))
-        if skillused.level >= counter.level :
+        if skillused.level >= counter.level - 2:
          print(str(user.name) + " won the clash")
          takeDamage(user,receiver,skillused)
          status(user)

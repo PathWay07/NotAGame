@@ -1,5 +1,10 @@
 import random
+from Skills import basicskillsList
 
-sl = [2,10,15,20,45,5]
-r= random.randint(0,5)
-print(sl[r])
+tr = 1123
+var = tr
+varstr = str(var)
+
+t= varstr.find("1")
+
+print(t)
